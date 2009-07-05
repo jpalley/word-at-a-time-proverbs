@@ -1,9 +1,9 @@
 Step 2: Choose the people to contribute to the word-at-a-time proverb
 
 <% content_for("invite_message") do %>
-  <%= @facebook_session.user.name %> wants you to join in an improvised word-at-a-time proverb about <br/><b><%= @category.name %>. <%= fb_req_choice("Join In!",category_path(@category)) %></b>
+  <%= @facebook_session.user.name %> wants you to join in an improvised word-at-a-time proverb about <b><%= @category.name %>. <%= fb_req_choice("Join In!","/categories/#{@category.id}" %></b>
 <% end %>
-<% fb_request_form("Improvise!","invite_message",url_for(category_path(@category))) do  %>
+<% fb_request_form("Improvise!","invite_message",url_for(:action=>:add_friends, :id=>@category.id) do  %>
 
 
 	<%= fb_multi_friend_selector("Who do you want to create this proverb with?") %>

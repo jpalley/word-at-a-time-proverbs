@@ -15,7 +15,7 @@ class CategoriesController < FacebookBaseController
     @word = params[:category][:first_word].split(' ').first.capitalize
    
     if (not @word.empty?) and @category.save
-      @proverb = @category.proverbs.create(:started_at=>Time.now.utc, :score=>0, :text=>'')
+      @proverb = @category.proverbs.create(:started_at=>Time.now.utc, :score=>0, :text=>''``)
       @proverb.proverb_words.create(:word=>@word, :user_id=>@current_user.id)
       @category.category_subscribers.create(:user_id=>@current_user.id)
       ActionPublisher.deliver_new_category(facebook_session.user, @category, @word)
@@ -33,7 +33,7 @@ class CategoriesController < FacebookBaseController
   end
   
    def add_friends
-     @proverb = Proverb.find(params[:id])
+     @category = Category.find(params[:id])
   #   @proverb.proverb_subscribers.create
     redirect_to :show, :id=>params[:id]
   end

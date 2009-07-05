@@ -1,5 +1,5 @@
 class Proverb < ActiveRecord::Base
-  validates_presence_of :text
+
   
   belongs_to :category
   has_many :proverb_words, :dependent=>:destroy

@@ -43,7 +43,7 @@ ActionController::Routing::Routes.draw do |map|
     proverb.resources :proverb_votes
   end
   map.resources :users
-  map.resources :categories, :conditions=>{:canvas=>true}
+  map.resources :categories, :conditions=>{:canvas=>true}, :member=>{:add_friends=>:post}
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

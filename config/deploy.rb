@@ -41,7 +41,7 @@ namespace :deploy do
   %w(start restart).each { |name| task name, :roles => :app do mod_rails.restart end }
 end
 
-namespace :db
+namespace :db do
 task :symlink, :except => { :no_release => true } do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/facebooker.yml #{release_path}/config/facebooker.yml"

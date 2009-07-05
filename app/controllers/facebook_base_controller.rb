@@ -8,7 +8,7 @@ class FacebookBaseController < ApplicationController
   private
   def get_user
       @current_user =
-        User.find_or_create_by_uid_and_name(facebook_session.user.id, facebook_session.user.name)
-      @facebbok_session = facebook_session
+        User.find_or_create_by_uid(facebook_session.user.id)
+      @facebook_session = facebook_session
   end
 end
