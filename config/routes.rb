@@ -38,7 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing the them or commenting them out if you're using named routes and resources.
-  map.resources :proverbs, :conditions=>{:canvas=>true}, :collection=>{:latest=>:get, :best=>:get} do |proverb|
+  map.resources :proverbs, :conditions=>{:canvas=>true}, :collection=>{:profile=>:get} do |proverb|
     proverb.resources :proverb_words
     proverb.resources :proverb_votes
   end

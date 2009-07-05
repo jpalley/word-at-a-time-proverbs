@@ -3,9 +3,9 @@ class CreateProverbs < ActiveRecord::Migration
     create_table :proverbs do |t|
       t.timestamp :started_at
       t.timestamp :completed_at
-      t.integer :score
+      t.integer :score, :default=>0
       t.integer :category_id
-      t.string :text
+      t.string :text, :default=>''
       t.timestamps
     end
   end

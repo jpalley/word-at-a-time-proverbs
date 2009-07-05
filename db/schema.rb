@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090705133824) do
+ActiveRecord::Schema.define(:version => 20090705170553) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(:version => 20090705133824) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "category_subscribers", ["category_id"], :name => "index_category_subscribers_on_category_id"
+  add_index "category_subscribers", ["user_id"], :name => "index_category_subscribers_on_user_id"
 
   create_table "facebook_templates", :force => true do |t|
     t.string "template_name", :null => false
