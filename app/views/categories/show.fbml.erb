@@ -1,0 +1,47 @@
+<br/>
+	<div class="proverb" style="margin-left: 30px; margin-top: 10px; border: solid 1px; background-color: #F0F0FF; overflow: auto; width: 100%">
+		<h1>Contribute to the latest proverb about <br/><span style="margin-left:25px; font-size: 20px"><i><%= @category.name %></i></span></h1>
+		
+		<% if flash[:error] %>
+		<div style="color: red">
+		<%= flash[:error]  %>
+		</div>
+		<% end %>
+		<div>
+		<div style="float:left">
+		<%= render :partial=>'/proverbs/proverb', :object=>@new_proverb %>
+		</div>
+		<div>
+			<% form_for :proverb_word, :url=>proverb_proverb_words_path(:proverb_id=>@new_proverb) do |f|%>
+			<%= text_field_tag :word, '', :size=>10, :style=>"border: none; border-bottom: solid 2px black; font-size: 18px" %>
+			<%= hidden_field_tag :text, @new_proverb.text %>
+			<%= submit_tag "Add Word ('.' to finish)" %>
+
+			<% end %>
+</div>
+</div>
+
+</div>
+
+<br/><br/>
+<h1>Vote for the best!</h1>
+<br/>
+	<table class="listing" valign=center width="100%">
+		<tr>
+			<th>Proverbs about <%= @category.name %></th>
+			<th>Score</th>
+			<th>Vote</th>
+		</tr>
+		<% for proverb in @proverbs %>
+		
+				<tr><%= render :partial=>'/proverbs/proverb_table', :object=>proverb %></tr>
+		<% end %>
+	</table>
+
+	<script><!--
+	function do_ajax(id, score) { 
+		var ajax = new Ajax(); 
+	    ajax.ondone = function(data) { 	}
+	   ajax.post('http://apps.facebook.com/improvise/proverbs/' + id + '/proverb_votes?score=' + score); 
+	}
+	--></script> 

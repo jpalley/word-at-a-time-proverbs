@@ -1,0 +1,11 @@
+<h1 style="font-size: 16px; margin: 20px; background-color:  #D8DFEA">Welcome! Choose from a category or <%= link_to 'create a new one.', new_category_path %></h1>
+
+
+<h2>My Categories:</h2>
+	<%= render :partial=>'categories', :object=>@my_categories %>
+<br/><br/>
+<h2>Join other categories:</h2>
+
+<p>
+Order by <%= link_to 'Age', :action=>:index, :order=>'age' %> or <%= link_to 'Popularity', :action=>:index, :order=>'popularity' %></p>
+<%= render :partial=>'categories', :object=>@categories %>

@@ -1,0 +1,16 @@
+
+			<td>
+				<%= render :partial=>'/proverbs/proverb', :object=>proverb_table %>
+			</td>
+			<td style="font-size: 18px"><div id="proverb_score_<%= proverb_table.id %>"><%= proverb_table.score %></div></td>
+			<td>
+				<div id="proverb_vote_<%= proverb_table.id %>">
+			<% if proverb_table.proverb_votes.size > 0 and proverb_table.proverb_votes.find_by_user_id(@current_user.id) %>
+				(Already Voted)
+			<% else %>
+<a href="#" onclick="var ajax = new Ajax(); ajax.ondone = function(data) {document.getElementById('proverb_vote_<%= proverb_table.id %>').setTextValue('(Already Voted)'); document.getElementById('proverb_score_<%= proverb_table.id %>').setTextValue(data)}; ajax.post('<%= @app_url %>/proverbs/<%= proverb_table.id %>/proverb_votes?score=1'); document.getElementById('proverb_vote_<%= proverb_table.id %>').setTextValue('Voting..');">Yes, yes, yes..(+1)</a><br/>
+			<a href="#" onclick="var ajax = new Ajax(); ajax.ondone = function(data) {document.getElementById('proverb_vote_<%= proverb_table.id %>').setTextValue('(Already Voted)'); document.getElementById('proverb_score_<%= proverb_table.id %>').setTextValue(data)}; ajax.post('<%= @app_url %>/proverbs/<%= proverb_table.id %>/proverb_votes?score=-1'); document.getElementById('proverb_vote_<%= proverb_table.id %>').setTextValue('Voting..');">Not so much..(-1)</a>
+			
+			<% end %>
+			</div>
+				</td>					

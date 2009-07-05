@@ -1,0 +1,16 @@
+<div class="listing">
+<table class="listing">
+	<tr>
+		<th>A word-at-a-time-proverb about...</th>
+		<th>Number of Proverbs</th>
+		<th> </th>
+	</tr>
+	<% for category in categories %>
+	<tr class="<%= cycle("even_column", "odd_column") %>">
+		<td><%= category.name %></td>
+		<td><%= category.proverb_count %></td>
+		<td><%= link_to 'Go To', category_path(category)  %></td>
+	</tr>
+	<% end %>
+</table>
+</div>

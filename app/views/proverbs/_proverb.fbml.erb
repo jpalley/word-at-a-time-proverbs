@@ -1,0 +1,5 @@
+<div id="proverb_<%= proverb.id %>" style="overflow:auto">
+<% for word in proverb.proverb_words %>
+<div style="float:left; text-align:center"><span class="word"><%= word.word %></span><br/><span class="name" style="width: 30px">(<%= fb_name word.user.uid, :firstnameonly=>true %>)</span></div>
+<% end %>
+</div>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  started_at: 2009-07-03 22:14:58
+  completed_at: 2009-07-03 22:14:58
+  score: 1
+
+two:
+  started_at: 2009-07-03 22:14:58
+  completed_at: 2009-07-03 22:14:58
+  score: 1

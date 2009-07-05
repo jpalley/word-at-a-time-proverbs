@@ -1,0 +1,19 @@
+
+<h1>Start a New Word-At-A-Time Proverb Category!</h1>
+<div class="box light-blue"><b>There are two steps:</b><br/>
+<ol>
+	<li>Say what the category is about.</li>
+	<li>Invite friends to join in.</li>
+</ol>
+</div>
+
+<fieldset class="box dark-blue" style="width: 400px">
+	<legend>Step 1</legend>
+<% form_for :category, @category, :url=>{:action=>:create} do |f| %>
+<%= f.error_messages %>
+	I want to start a proverb about <%= f.text_field :name %>.<br/><br/>
+	The first word of the proverb is <%= f.text_field :first_word, :size=>7 %><br/><br/>
+	<%= submit_tag "Continue to Step 2", :style=>'float:right' %>
+<% end %>
+</fieldset>
+

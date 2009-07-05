@@ -1,0 +1,18 @@
+<br/>
+<br/>
+<h1>Vote for the Best Proverbs or <%= link_to 'Contribute!', categories_path %></h1>
+<br/><br/>
+<table class="listing">
+	<tr>
+		<th>A proverb about..</th>
+		<th>Proverb</th>
+		<th>Score</th>
+		<th>Vote</th>
+	</tr>
+	<% for proverb in @proverbs %>
+	<tr>
+		<td><%= proverb.category.name  %></td>
+		<%= render :partial=>'proverb_table', :object=>proverb %>
+	</tr>
+	<% end %>
+</table>

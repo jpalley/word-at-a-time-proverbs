@@ -1,0 +1,18 @@
+<h1>Leaderboard</h1>
+<br/><br/>
+<h2>Everytime someone "yes, yes, yes"'s a proverb you contributed to, you get one point. You do NOT get deducted points when someone votes a proverb done.<br/>
+	<br/><br/>
+	The top word-at-a-time writers are:</h2>
+
+<table>
+	<tr><th>Score</th><th>Player</th></tr>
+	
+	<% for user in @users %>
+	<tr>
+		<td><%= user.score %></td>
+		<td><%= fb_profile_pic user.uid, :size=>:thumb %></td>
+		<td><%= fb_name user.uid %></td>
+	</tr>
+	<% end %>
+</table>
+	
